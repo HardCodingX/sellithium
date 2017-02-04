@@ -2,9 +2,9 @@
 
 use \NoahBuscher\Macaw\Macaw;
 
-Macaw::get('/', 'controllers\Controller@index');
-Macaw::get('/page', 'controllers\Controller@page');
-Macaw::get('/view/(:num)', 'controllers\Controller@view');
+Macaw::get('/', 'controllers\Home@index');
+Macaw::get('/page', 'controllers\Home@page');
+Macaw::get('/view/(:num)', 'controllers\Home@view');
 
 Macaw::dispatch();
 
