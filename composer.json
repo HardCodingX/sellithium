@@ -1,0 +1,6 @@
+{
+    "require": {
+        "noahbuscher/macaw": "dev-master",
+        "dwoo/dwoo": "1.2.*"
+    }
+}
