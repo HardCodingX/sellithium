@@ -10,12 +10,7 @@ class Home extends Controller{
         echo 'home';
     }
 
-    public function page()
-    {
-        echo 'page';
-    }
-
-    public function view($id)
+    public function test($id)
     {
       echo $this->getView('home', compact('id'));
     }
