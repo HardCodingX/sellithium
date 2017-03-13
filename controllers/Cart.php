@@ -4,7 +4,11 @@ namespace controllers;
 class Cart extends Controller {
 
     public function index() {
-        echo 'Cart';
+      echo $this->getView('cart');
+    }
+
+    public function checkout() {
+      echo $this->getView('cart_checkout');
     }
 
 }

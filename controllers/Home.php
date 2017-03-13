@@ -4,11 +4,11 @@ namespace controllers;
 class Home extends Controller {
 
     public function index() {
-        echo 'home';
+      echo $this->getView('home');
     }
 
     public function test($id) {
-      echo $this->getView('home', compact('id'));
+      echo $this->getView('test', compact('id'));
     }
 
 }
