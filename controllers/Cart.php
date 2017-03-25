@@ -7,10 +7,11 @@ class Cart extends Controller {
       $cart = $_SESSION['cart'];
       $cart_products = [];
       $total = 0;
-      foreach ($this->productsList as $k => $v) {
-        if (in_array($v['id'], $cart)) {
-          $cart_products[] = $v;
-          $total += $v['price'];
+      $products = $this->mysqli->query("select * from products where id in (".implode(",", $cart).")");
+      if ($products) {
+        while ($row = $products->fetch_assoc()) {
+          $cart_products[] = $row;
+          $total += $row['price'];
         }
       }
       echo $this->getView('cart', compact('cart_products', 'total', 'cart'));
@@ -19,12 +20,11 @@ class Cart extends Controller {
     public function checkout() {
       $cart = $_SESSION['cart'];
       $total = 0;
-      foreach ($this->productsList as $k => $v) {
-        if (in_array($v['id'], $cart)) {
-          $total += $v['price'];
-        }
+      $products_total = $this->mysqli->query("select sum(price) as total from products where id in (".implode(",", $cart).")");
+      if ($products_total) {
+        $total = $products_total->fetch_assoc();
       }
-      echo $this->getView('cart_checkout', compact('total'));
+      echo $this->getView('cart_checkout', ['total' => $total['total']]);
     }
 
     public function restart() {

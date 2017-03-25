@@ -13,6 +13,8 @@ if (!array_key_exists('logued', $_SESSION)) {
 
 class Controller {
 
+  var $mysqli = null;
+
   var $productsList = [
     [id => 1, name => 'lap acer', price => 8000.00, stocks => 12],
     [id => 2, name => 'hp printer', price => 1500.99, stocks => 20],
@@ -22,9 +24,24 @@ class Controller {
     [id => 6, name => 'Portable Hard Drive', price => 900.40, stocks => 25]
   ];
 
+  public function __construct() {
+    $this->connectDb();
+  }
+
   public function getView($file, $data = []) {
     $GetView = new Dwoo_Core();
     return $GetView->get('views/'.$file.'.tpl', $data);
+  }
+
+  private function connectDb() {
+    $mysqli = new \mysqli("localhost", "root", "jesus", "sellithium");
+
+    if ($mysqli->connect_errno) {
+        printf("Falló la conexión: %s\n", $mysqli->connect_error);
+        exit();
+    } else {
+      $this->mysqli = $mysqli;
+    }
   }
 
 }

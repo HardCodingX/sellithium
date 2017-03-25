@@ -4,14 +4,14 @@
   <h1>Home</h1>
 
   <div>
-    {foreach $products, key, value, name='i'}
+    {foreach $productsList, key, value, name='i'}
       <p>
-        <a href="products/{$products[$.foreach.i.index]['id']}">Ver</a>
-        <a href="products/{$products[$.foreach.i.index]['id']}/cart">Carrito</a>
-        {$products[$.foreach.i.index]['id']}
-        {$products[$.foreach.i.index]['name']}
-        {$products[$.foreach.i.index]['price']}
-        {$products[$.foreach.i.index]['stocks']}
+        <a href="products/{$productsList[$.foreach.i.index]['id']}">Ver</a>
+        <a href="products/{$productsList[$.foreach.i.index]['id']}/cart">Carrito</a>
+        {$productsList[$.foreach.i.index]['id']}
+        {$productsList[$.foreach.i.index]['name']}
+        {$productsList[$.foreach.i.index]['price']}
+        {$productsList[$.foreach.i.index]['stocks']}
       </p>
     {/foreach}
   </div>

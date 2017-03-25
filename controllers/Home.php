@@ -4,8 +4,12 @@ namespace controllers;
 class Home extends Controller {
 
     public function index() {
-      $products = array_slice($this->productsList, 0, 3);
-      echo $this->getView('home', compact('products'));
+      $products = $this->mysqli->query("select * from products order by id desc limit 3");
+      $productsList = [];
+      while ($row = $products->fetch_assoc()) {
+        $productsList[] = $row;
+      }
+      echo $this->getView('home', compact('productsList'));
     }
 
     public function test($id) {

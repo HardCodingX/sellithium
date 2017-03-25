@@ -12,7 +12,11 @@
         <span>1</span>
       </p>
     {/foreach}
-    <h3>{$total}</h3>
+    {if $total == 0}
+      <p>No hay productos en su carrito</p>
+    {else}
+      <h3>{$total}</h3>
+    {/if}
   </div>
   <a href="checkout">Pagar</a>
   <a href="restart">Borrar Carrito</a>
