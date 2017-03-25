@@ -5,7 +5,7 @@ use \NoahBuscher\Macaw\Macaw;
 Macaw::get('/', 'controllers\Home@index');
 Macaw::get('/products', 'controllers\Products@index');
 Macaw::get('/products/(:num)', 'controllers\Products@view');
-Macaw::get('/products/(:num)/edit', 'controllers\Products@edit');
+// Macaw::get('/products/(:num)/edit', 'controllers\Products@edit');
 Macaw::get('/products/(:num)/cart', 'controllers\Products@cart');
 Macaw::get('/cart', 'controllers\Cart@index');
 Macaw::get('/checkout', 'controllers\Cart@checkout');

@@ -12,9 +12,9 @@ class Products extends Controller {
       echo $this->getView('products_view', compact('product'));
     }
 
-    public function edit($id) {
+    /*public function edit($id) {
       echo $this->getView('products_edit', compact('id'));
-    }
+    }*/
 
     public function cart($id) {
       $_SESSION['cart'][] = $id;

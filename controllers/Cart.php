@@ -29,7 +29,7 @@ class Cart extends Controller {
 
     public function restart() {
       $_SESSION['cart'] = [];
-      header("LOCATION: /sellithium/cart");
+      header("LOCATION: /sellithium/products");
     }
 
 }

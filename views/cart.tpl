@@ -9,11 +9,11 @@
         {$cart_products[$.foreach.k.index]['id']}
         {$cart_products[$.foreach.k.index]['name']}
         {$cart_products[$.foreach.k.index]['price']}
-        {$cart_products[$.foreach.k.index]['stocks']}
+        <span>1</span>
       </p>
     {/foreach}
     <h3>{$total}</h3>
   </div>
   <a href="checkout">Pagar</a>
-  <a href="restart">Borrar Carrrito</a>
+  <a href="restart">Borrar Carrito</a>
 {/block}
