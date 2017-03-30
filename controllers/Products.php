@@ -19,18 +19,10 @@ class Products extends Controller {
     }
 
     public function cart($id) {
-      $_SESSION['cart'][] = $id;
-      $this->view($id);
-    }
-
-    private function filter_product($id) {
-      $product = [];
-      foreach ($this->productsList as $k => $v) {
-        if ($v['id'] == $id) {
-          $product = $v;
-        }
+      if (!in_array($id, $_SESSION['cart'])) {
+        $_SESSION['cart'][] = $id;
       }
-      return $product;
+      $this->view($id);
     }
 
 }

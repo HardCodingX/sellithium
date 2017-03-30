@@ -16,8 +16,10 @@
       <p>No hay productos en su carrito</p>
     {else}
       <h3>{$total}</h3>
+
+      <a href="checkout">Pagar</a>
+      <a href="restart">Borrar Carrito</a>
     {/if}
+    <a href="products">Regresar</a>
   </div>
-  <a href="checkout">Pagar</a>
-  <a href="restart">Borrar Carrito</a>
 {/block}

@@ -17,8 +17,14 @@ class Users extends Controller {
     public function try_login() {
       $user = $_POST['user'];
       $password = $_POST['password'];
-      if ($user == 'test' && $password == 'test') {
+
+      $login_result = $this->mysqli->query("select * from users where username ='".$user."' and password = '".md5($password)."'");
+
+      $login = $login_result->fetch_assoc();
+
+      if ($login != null && array_key_exists('id', $login)) {
         $_SESSION['logued'] = true;
+        $_SESSION['id'] = $login['id'];
         header("LOCATION: /sellithium/");
       }
       echo $this->getView('user_login');
@@ -26,6 +32,7 @@ class Users extends Controller {
 
     public function logout() {
       $_SESSION['logued'] = false;
+      $_SESSION['id'] = 0;
       echo $this->getView('user_login');
     }
 

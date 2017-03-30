@@ -20,10 +20,21 @@ class Cart extends Controller {
     public function checkout() {
       $cart = $_SESSION['cart'];
       $total = 0;
+
       $products_total = $this->mysqli->query("select sum(price) as total from products where id in (".implode(",", $cart).")");
+
+      $this->mysqli->query("insert into invoices (user_id, createdAt) values (".$_SESSION['id'].", '".date("Y-m-d H:i:s")."')");
+      $last_id = $this->mysqli->insert_id;
+
+      foreach ($cart as $k => $v) {
+          $this->mysqli->query("insert into invoices_products (invoice_id, product_id) values (".$last_id.", ".$v.")");
+      }
+
       if ($products_total) {
         $total = $products_total->fetch_assoc();
       }
+
+      $_SESSION['cart'] = [];
       echo $this->getView('cart_checkout', ['total' => $total['total']]);
     }
 
