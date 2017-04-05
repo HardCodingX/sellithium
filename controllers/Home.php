@@ -4,7 +4,7 @@ namespace controllers;
 class Home extends Controller {
 
     public function index() {
-      $products = $this->mysqli->query("select * from products order by id desc limit 3");
+      $products = $this->mysqli->query("select * from products order by rand() limit 3");
       $productsList = [];
       while ($row = $products->fetch_assoc()) {
         $productsList[] = $row;
