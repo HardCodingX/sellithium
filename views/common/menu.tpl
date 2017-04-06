@@ -1,14 +1,14 @@
-<nav>
-  <a href="">Home</a>
-  <a href="products">Products</a>
-  <a href="cart">Cart</a>
+<nav id="nav">
+  <a class="nav__item" href="">Home</a>
+  <a class="nav__item" href="products">Products</a>
+  <a class="nav__item" href="cart">Cart</a>
   <?php
     if ($_SESSION['logued'] == false) {
   ?>
-    <a href="login">Login</a>
-    <a href="register">Register</a>
+    <a class="nav__item" href="login">Login</a>
+    <a class="nav__item" href="register">Register</a>
   <?php } else { ?>
-    <a href="invoices">Invoices</a>
-    <a href="logout">Logout</a>
+    <a class="nav__item" href="invoices">Invoices</a>
+    <a class="nav__item" href="logout">Logout</a>
   <?php } ?>
 </nav>

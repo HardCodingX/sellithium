@@ -1,17 +1,17 @@
 {extends "layouts/main.tpl"}
 
 {block "content"}
-  <h1>Home</h1>
+  <h1 class="title">Home</h1>
 
-  <div>
+  <div class="table">
     {foreach $productsList, key, value, name='i'}
       <p>
-        <a href="products/{$productsList[$.foreach.i.index]['id']}">Ver</a>
-        <a href="products/{$productsList[$.foreach.i.index]['id']}/cart">Carrito</a>
-        {$productsList[$.foreach.i.index]['id']}
-        {$productsList[$.foreach.i.index]['name']}
-        {$productsList[$.foreach.i.index]['price']}
-        {$productsList[$.foreach.i.index]['stocks']}
+        <a href="products/{$productsList[$.foreach.i.index]['id']}" class="button">Ver</a>
+        <a href="products/{$productsList[$.foreach.i.index]['id']}/cart" class="button">Carrito</a>
+        <span>{$productsList[$.foreach.i.index]['id']}</span>
+        <span>{$productsList[$.foreach.i.index]['name']}</span>
+        <span>{$productsList[$.foreach.i.index]['price']}</span>
+        <span>{$productsList[$.foreach.i.index]['stocks']}</span>
       </p>
     {/foreach}
   </div>

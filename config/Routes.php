@@ -15,8 +15,9 @@ Macaw::get('/invoices/(:num)', 'controllers\Invoices@view');
 Macaw::get('/account', 'controllers\Users@index');
 Macaw::get('/login', 'controllers\Users@login');
 Macaw::post('/login', 'controllers\Users@try_login');
-Macaw::get('/logout', 'controllers\Users@Logout');
+Macaw::get('/logout', 'controllers\Users@logout');
 Macaw::get('/register', 'controllers\Users@register');
+Macaw::post('/register', 'controllers\Users@save_user');
 
 Macaw::get('/test/(:num)', 'controllers\Home@test');
 

@@ -1,0 +1,63 @@
+body {
+  margin: 0px;
+  font-family: Arial;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.title {
+  color: green;
+  font-size: 32px;
+  padding: 5px;
+}
+
+#nav {
+  padding: 10px;
+  background: #006699;
+}
+
+.nav__item {
+  color: white;
+}
+
+/*:visited, :active*/
+.nav__item:hover {
+  color: blue;
+}
+
+.table {
+  padding: 5px;
+}
+
+.button {
+  display: inline-block;
+  background: #006699;
+  padding: 3px;
+  margin: 3px;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+}
+
+.button:hover {
+  background: blue;
+}
+
+.table span {
+  margin: 3px;
+  display: inline-block;
+}
+
+.view {
+  padding: 5px;
+}
+
+.view p {
+  margin: 3px;
+}
